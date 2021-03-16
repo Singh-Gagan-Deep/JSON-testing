@@ -12,7 +12,7 @@
       import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
 
       const octokit = new Octokit({
-        auth: `f32df20a37d5bcbf426f1c723879f9bc5def3122`,
+        auth: `39502e4ea1a4a50f5f107a277fa99c9dcf5efae9`,
       });
       var shaKey = "";
       var content = [];
@@ -54,7 +54,6 @@
           var decodedData = atob(res.data.content);
           console.log(JSON.parse(decodedData));
         });
-      window.document.body.appendChild(JSON.parse(decodedData));
     </script>
     <button onclick="return  hello()">Show data</button>
 
