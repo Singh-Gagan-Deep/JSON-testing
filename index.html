@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Utility</title>
+  </head>
+  <body>
+    <div>
+      <p>Blog Utility</p>
+      <h3 id="samaan"></h3>
+    </div>
+    <script type="module">
+      import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+
+      const octokit = new Octokit({
+        auth: `f32df20a37d5bcbf426f1c723879f9bc5def3122`,
+      });
+      var shaKey = "";
+      var content = [];
+      // function putRequest() {
+      //   octokit.request(
+      //     "PUT /repos/anushka-beri/blog-utility/contents/blogData.json",
+      //     {
+      //       owner: "anushka-beri",
+      //       sha: shaKey,
+      //       accept: "application/vnd.github.v3+json",
+      //       repo: "blog-utility",
+      //       path: "blob/master/blogData.json",
+      //       message: btoa("testing here"),
+      //       content: btoa("testing here"),
+      //     }
+      //   );
+      // }
+      function downloadFile() {
+        // octokit.request(
+        //   "GET /repos/anushka-beri/blog-utility/contents/src/data"
+        // );
+        // fetch(
+        //   "/repos/HemantHarsh/githubtest");
+      }
+      octokit
+        .request("GET /repos/Singh-Gagan-Deep/JSON-testing")
+        .then((res) => {
+          console.log(res);
+          // shaKey = res.data[0].sha;
+          console.log("SHA", shaKey);
+          // putRequest();
+          // downloadFile();
+        });
+      octokit
+        .request(
+          "GET /repos/Singh-Gagan-Deep/JSON-testing/contents/data.json?age=22"
+        )
+        .then((res) => {
+          var decodedData = atob(res.data.content);
+          console.log(JSON.parse(decodedData));
+        });
+      window.document.body.appendChild(JSON.parse(decodedData));
+    </script>
+    <button onclick="return  hello()">Show data</button>
+
+    <!-- <script type="application/javascript">
+      const url =
+        "https://raw.githubusercontent.com/Singh-Gagan-Deep/JSON-testing/master/data.json";
+      fetch(url)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script> -->
+  </body>
+</html>
